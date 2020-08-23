@@ -19,7 +19,7 @@ namespace PlatypexBot
         public async Task StartAsync()
         {
             client = new DiscordSocketClient();
-            await client.LoginAsync(TokenType.Bot, "NzQ0NjYyMzQ1NTczMjA0MDQw.Xzme2g.qjl-9BKEEbRslxrSyiL_IvKi_Kw");
+            await client.LoginAsync(TokenType.Bot, "cool_token");
             await client.StartAsync();
             commands = new Commands(client);
 
