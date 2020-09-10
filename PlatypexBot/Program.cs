@@ -26,7 +26,6 @@ namespace PlatypexBot
                 Prefix = results["Prefix"];
                 token = results["Token"];
             }
-
             WelcomeID = 0;
             new Program().StartAsync().GetAwaiter().GetResult();
         }
