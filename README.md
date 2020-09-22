@@ -10,3 +10,4 @@ Prefix: `pp `
 * Change nicknames
 * Delete messages, channels
 * Welcome and goodbye messages
+* Send memes from Reddit (for now, memes only from r/ProgrammerHumor)
