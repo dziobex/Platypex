@@ -1,11 +1,12 @@
-﻿using Discord;
+using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Reddit;
+using Reddit.Controllers;
 
 namespace PlatypexBot.Modules
 {
@@ -14,6 +15,20 @@ namespace PlatypexBot.Modules
         IGuildUser currentUser;
         [Command("Platy")]
         public async Task What() => await Context.Channel.SendMessageAsync("what?");
+
+        [Command("meme")]
+        public async Task Meme()
+        {
+            RedditClient reddit = new RedditClient("yes", "yes");
+            Post post = reddit.Subreddit("ProgrammerHumor").Posts.Hot[Program.Randomizer.Next(0, 99)];
+
+            var embed = new EmbedBuilder();
+            embed.Title = $"{post.Title}";
+            embed.Url = ((LinkPost)post).URL;
+            embed.Color = Color.Green;
+            embed.ImageUrl = ((LinkPost)post).URL;
+            await ReplyAsync(null, false, embed.Build());
+        }
 
         [Command("help")]
         public async Task Help()
